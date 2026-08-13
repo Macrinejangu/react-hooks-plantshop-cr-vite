@@ -1,48 +1,57 @@
-# Phase 2 Code Challenge: Plantsy
+# Plantsy
+
+A React app for browsing, adding, and managing plant inventory. Fetches and persists plants through a json-server backend, with client-side search and stock status toggling.
+
+## Screenshot
+
+![Plantsy screenshot](./screenshot.png)
 
 ## Demo
 
-Use this gif as an example of how the app should work.
-
 ![Demo GIF](./demo.gif)
 
-## Instructions
+## Features
 
-Welcome to Plantsy! You've been tasked with building out some features for the
-admin side of a plant store. The designers have put together the components and
-CSS. Now it's up to you to bring the features to life by adding stateful logic
-as well as persisting data to the backend via our API.
+- Fetches and displays all plants from the backend on page load
+- Adds a new plant via a form, which POSTs to the backend and updates the page
+- Marks a plant as sold out or back in stock (session only, not persisted)
+- Filters the plant list by name as you type in the search box
 
-Your job will be to make our app work according to the user stories you will
-find the [Deliverables](#Deliverables) section.
+## Installation
 
-## Setup
+Clone the repo and install dependencies:
 
-1. Run `npm install` in your terminal.
-2. Run `npm run server`. This will run your backend on port `6001`.
-3. In a new terminal, run `npm run dev`.
+git clone git@github.com:Macrinejangu/react-hooks-plantshop-cr-vite.git
+cd react-hooks-plantshop-cr-vite
+npm install
 
-Make sure to open [http://localhost:6001/plants](http://localhost:6001/plants)
-in the browser to verify that your backend is working before you proceed!
 
-## Endpoints
+## Usage
 
-The base URL for your backend is: `http://localhost:6001`
+Start the backend (runs on port 6001):
 
-## Deliverables
+npm run server
 
-As a user:
 
-1. When the app starts, I can see all plants.
-2. I can add a new plant to the page by submitting the form.
-3. I can mark a plant as "sold out".
-4. I can search for plants by their name and see a filtered list of plants.
+In a separate terminal, start the frontend:
 
-### Endpoints for Core Deliverables
+npm run dev
 
-#### GET /plants
 
-Example Response:
+Open the printed local URL in your browser. You can also open [http://localhost:6001/plants](http://localhost:6001/plants) directly to confirm the backend is serving data.
+
+## Testing
+
+npm run test
+
+
+## API reference
+
+Base URL: `http://localhost:6001`
+
+### GET /plants
+
+Example response:
 
 ```json
 [
@@ -61,9 +70,9 @@ Example Response:
 ]
 ```
 
-#### POST `/plants`
+### POST /plants
 
-Required Headers:
+Required headers:
 
 ```js
 {
@@ -71,17 +80,17 @@ Required Headers:
 }
 ```
 
-Request Object:
+Request body:
 
 ```json
 {
   "name": "string",
   "image": "string",
-  "price": number
+  "price": "number"
 }
 ```
 
-Example Response:
+Example response:
 
 ```json
 {
@@ -91,3 +100,16 @@ Example Response:
   "price": 15.99
 }
 ```
+
+## Tech stack
+
+- React
+- Vite
+- json-server
+- Vitest and React Testing Library
+
+## Project status
+
+Complete. All four core deliverables (render, create, mark out of stock, search) are implemented and passing tests.
+
+
